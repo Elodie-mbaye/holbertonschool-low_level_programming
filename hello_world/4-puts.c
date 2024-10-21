@@ -10,7 +10,8 @@
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
+	betty-style 4-puts.c
 
 	return (0);
 }
-betty-style 4-puts.c
+
