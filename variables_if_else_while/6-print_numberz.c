@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 /**
- *
  * main - Prints numbers statrting from 0 to 9
  *
  * Return: Always (Success)
