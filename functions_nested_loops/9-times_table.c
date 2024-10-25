@@ -1,19 +1,30 @@
 #include "main.h"
+
 /**
- * print_alphabet_x9 - prints the alphabet nine times
+ * times_table - Prints the 9 times table, starting with 0.
  */
 void times_table(void)
 {
-	int count =0;
-	char ch;
+	int num, mult, prod;
 
-	while (count <= 9)
+	for (num = 0; num <= 9; num++)
 	{
-		for (ch = 0; ch <= 9; ch++)
-		{	
-			_putchar(ch);
-		_putchar('\n');
+		_putchar('0');
+
+		for (mult = 1; mult <= 9; mult++)
+		{
+			_putchar(',');
+			_putchar(' ');
+
+			prod = num * mult;
+
+			if (prod <= 9)
+				_putchar(' ');
+			else
+				_putchar((prod / 10) + '0');
+
+			_putchar((prod % 10) + '0');
 		}
-		count++;
+		_putchar('\n');
 	}
 }
