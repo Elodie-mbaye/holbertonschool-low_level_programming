@@ -1,44 +1,48 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <string.h>
+
 /**
- * new_dog - creates new dog
- * @name: the name of the dog
- * @age: the age of the dog
- * @owner: the owner of the dog
- *
- * Return: NULL if the function is fails
+ * new_dog - creates a new struct of type dog
+ * @name: struct parameter name
+ * @age: struct parameter age
+ * @owner: struct parameter owner
+ * Return: returns pointer to a new dog object
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *d;
+	int name_length, owner_length, i;
+	dog_t *new_dog;
 
-	if (name == NULL || owner == NULL)
-	{
-		return (NULL);
-	}
-	d = malloc(sizeof(dog_t));
-	if (d == NULL)
-	{
-		return (NULL);
-	}
-	d->name = malloc(strlen(name) + 1);
+	name_length = owner_length = 0;
 
-	if (d->name == NULL)
-	{
-		free(d);
-		return (NULL);
-	}
-	strcpy(d->name, name);
-	d->owner = malloc(strlen(owner) + 1);
+	while (name[name_length++])
+		;
+	while (owner[owner_length++])
+		;
+	new_dog = malloc(sizeof(dog_t));
 
-	if (d->owner == NULL)
+	if (new_dog == NULL)
+		return (NULL);
+
+	new_dog->name = malloc(name_length * sizeof(new_dog->name));
+
+	if (new_dog->name == NULL)
 	{
-		free(d->name);
-		free(d);
+		free(new_dog);
 		return (NULL);
 	}
-	strcpy(d->owner, owner);
-	d->age = age;
-	return (d);
+	for (i = 0; i < name_length; i++)
+		new_dog->name[i] = name[i];
+	new_dog->age = age;
+
+	new_dog->owner = malloc(owner_length * sizeof(new_dog->owner));
+	if (new_dog->owner == NULL)
+	{
+		free(new_dog->name);
+		free(new_dog);
+		return (NULL);
+	}
+	for (i = 0; i < owner_length; i++)
+		new_dog->owner[i] = owner[i];
+	return (new_dog);
 }
