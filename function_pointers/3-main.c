@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include "3-calc.h"
-#include <string.h>
 #include <stdio.h>
- /**
-  * main - program to perform simple operations
- * @argc: Number of arguments
- * @argv: Array of arguments
- *
- * Return:exits 0 normally, 98 on argc error, 99 on illegal operator
- */
+#include <string.h>
+/**
+* main - program to perform simple operations
+* @argc: Number of arguments
+* @argv: Array of arguments
+*
+* Return:exits 0 normally, 98 on argc error, 99 on illegal operator
+*/
 int main(int argc, char *argv[])
 {
 	int (*func)(int, int);
